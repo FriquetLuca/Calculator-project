@@ -600,6 +600,7 @@ const keySections = {};
  ];
  
  const remakeNodes = (nodes) => {
+     let label = document.querySelector('.calculator_displayResult_result').innerHTML;
      let result = [];
      for(let i = 0; i < nodes.length; i++)
      {
@@ -703,6 +704,13 @@ const keySections = {};
                              name: 'Number',
                              content: 0.01745329251994329576923690768489
                          });
+                     }
+                     else if(node[1] === '@')
+                     {
+                        result.push({
+                            name: 'Number',
+                            content: Number(label)
+                        });
                      }
                      else
                      {
@@ -954,6 +962,12 @@ const calculatorKeys = [
         type: 'function',
         content: ',',
         value: ','
+    },
+    {
+        name: 'arobase',
+        type: 'function',
+        content: 'Ans',
+        value: '@'
     },
     {
         name: 'avg',
@@ -1321,6 +1335,7 @@ let userInput = document.querySelector('.calculator_displayResult_write');
 computeBtn.addEventListener('click', () => {
     computeInput();
 });
+userInput.setAttribute('autofocus', true);
 userInput.addEventListener('keydown', function(e){
     // Enter was pressed without shift key
     if (e.keyCode == 13 && !e.shiftKey)
