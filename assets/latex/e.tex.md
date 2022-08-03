@@ -1,0 +1,1 @@
+\[e = \lim_{n->∞}\left(1 + \frac{1}{n}\right)^n\]

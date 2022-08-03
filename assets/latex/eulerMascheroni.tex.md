@@ -1,0 +1,1 @@
+\[γ = \lim_{n->∞}\left(-\log n + \sum_{k=1}^{n}\frac{1}{k}\right)\]
