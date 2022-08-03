@@ -1,6 +1,6 @@
 # Calculator
 A calculator that can parse written text to compute the value.
-You can test it [here](https://raw.githack.com/FriquetLuca/Calculator-project/master/index.html).
+You can test it [here](https://friquetluca.github.io/Calculator-project/).
 
 ## Support constants:
 - $\varphi$ / golden (Golden ratio)
