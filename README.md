@@ -5,19 +5,19 @@ You can test it [here](https://raw.githack.com/FriquetLuca/Calculator-project/ma
 ## Support constants:
 - $\varphi$ / golden (Golden ratio)
     > It is an irrational number that is a solution to the quadratic equation x² - x - 1.
-    <pre xml:lang="latex">\varphi=\frac{1+\sqrt{5}}{2}</pre>
+    \[\varphi=\frac{1+\sqrt{5}}{2}\]
 - π / pi (Pi)
     > It is a transcendental number that is the ratio of a circle's circumference to its diameter.
-    <img src="https://latex.codecogs.com/gif.latex?π=2\int_{-1}^{1}\sqrt{1-x^2}dx">
+    \[π=2\int_{-1}^{1}\sqrt{1-x^2}dx\]
 - e (Euler's number)
     > It is a transendental number that is the base of logarithms and is defined as:
-    <img src="https://latex.codecogs.com/gif.latex?e = \lim_{n->∞}\left(1 + \frac{1}{n}\right)^n">
+    \[e = \lim_{n->∞}\left(1 + \frac{1}{n}\right)^n\]
 - eulermascheroni (Euler-Mascheroni)
     > It is defined as the limiting difference between the harmonic series and the natural logarithm:
-    <img src="https://latex.codecogs.com/gif.latex?γ = \lim_{n->∞}\left(-\log n + \sum_{k=1}^{n}\frac{1}{k}\right)">
+    \[γ = \lim_{n->∞}\left(-\log n + \sum_{k=1}^{n}\frac{1}{k}\right)\]
 - apery (Apéry's constant)
     > It is defined as the sum of the reciprocals of the positive cubes.
-    <img src="https://latex.codecogs.com/gif.latex?\zeta(3)=\sum_{k=1}^{∞}\frac{1}{k^3}">
+    \[\zeta(3)=\sum_{k=1}^{∞}\frac{1}{k^3}\]
 - @
     > Get the value of the previous answer.
 
