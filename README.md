@@ -5,16 +5,16 @@ You can test it [here](https://raw.githack.com/FriquetLuca/Calculator-project/ma
 ## Support constants:
 - $\varphi$ / golden (Golden ratio)
     > It is an irrational number that is a solution to the quadratic equation x² - x - 1.
-    ![Golden ratio](assets/img/golden-ratio.png)
+![Golden ratio](assets/img/golden-ratio.png)
 - π / pi (Pi)
     > It is a transcendental number that is the ratio of a circle's circumference to its diameter.
-    ![Pi](assets/img/pi-formula.png)
+![Pi](assets/img/pi-formula.png)
 - e (Euler's number)
     > It is a transendental number that is the base of logarithms and is defined as:
-    ![Euler's number](assets/img/euler-number.png)
+![Euler's number](assets/img/euler-number.png)
 - eulermascheroni (Euler-Mascheroni)
     > It is defined as the limiting difference between the harmonic series and the natural logarithm:
-    ![Euler-Mascheroni's constant](assets/img/euler-mascheroni.png)
+![Euler-Mascheroni's constant](assets/img/euler-mascheroni.png)
 - apery (Apéry's constant)
     > It is defined as the sum of the reciprocals of the positive cubes.
     ![Apery's constant](assets/img/apery.png)
