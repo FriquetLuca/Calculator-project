@@ -4,7 +4,7 @@ You can test it [here](https://raw.githack.com/FriquetLuca/Calculator-project/ma
 
 ## Support constants:
 - $\varphi$ / golden (Golden ratio)
-    > It is an irrational number that is a solution to the quadratic equation x² - x - 1.
+    > It is an irrational number that is a solution to the quadratic equation x² - x - 1.\
 ![Golden ratio](assets/img/golden-ratio.png)
 - π / pi (Pi)
     > It is a transcendental number that is the ratio of a circle's circumference to its diameter.
@@ -16,7 +16,7 @@ You can test it [here](https://raw.githack.com/FriquetLuca/Calculator-project/ma
     > It is defined as the limiting difference between the harmonic series and the natural logarithm:
 ![Euler-Mascheroni's constant](assets/img/euler-mascheroni.png)
 - apery (Apéry's constant)
-    > It is defined as the sum of the reciprocals of the positive cubes.
+    > It is defined as the sum of the reciprocals of the positive cubes.\
     ![Apery's constant](assets/img/apery.png)
     
 - @
