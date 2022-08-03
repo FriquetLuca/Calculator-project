@@ -868,7 +868,7 @@ const calculatorKeys = [
     {
         name: 'eulermascheroni',
         type: 'control',
-        content: 'Euler-Mascheroni',
+        content: 'Euler-Masche...',
         value: 'eulermascheroni'
     },
     {
