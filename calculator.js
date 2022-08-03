@@ -950,6 +950,12 @@ const calculatorKeys = [
         value: 'artanh('
     },
     {
+        name: 'coma',
+        type: 'function',
+        content: ',',
+        value: ','
+    },
+    {
         name: 'avg',
         type: 'function',
         content: 'avg(...x)',
@@ -976,7 +982,7 @@ const calculatorKeys = [
     {
         name: 'log',
         type: 'function',
-        content: 'logₐ(x)',
+        content: 'log(x, b)',
         value: 'log('
     },
     {
@@ -988,7 +994,7 @@ const calculatorKeys = [
     {
         name: 'root',
         type: 'function',
-        content: 'ⁿ√x',
+        content: 'root(x, n)',
         value: 'root('
     },
     {
@@ -1094,10 +1100,10 @@ const calculatorKeys = [
         value: '!'
     },
     {
-        name: 'coma',
+        name: 'power',
         type: 'digit',
-        content: ',',
-        value: ','
+        content: '^',
+        value: '^'
     },
     {
         name: 'nine',
