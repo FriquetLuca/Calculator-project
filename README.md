@@ -1,5 +1,6 @@
 # Calculator
 A calculator that can parse written text to compute the value.
+You can test it [here](https://raw.githack.com/FriquetLuca/Calculator-project/master/index.html).
 
 ## Support constants:
 - e
