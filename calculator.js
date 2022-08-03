@@ -860,6 +860,24 @@ const calculatorKeys = [
         value: 'e'
     },
     {
+        name: 'golden',
+        type: 'control',
+        content: 'φ',
+        value: 'φ'
+    },
+    {
+        name: 'eulermascheroni',
+        type: 'control',
+        content: 'Euler-Mascheroni',
+        value: 'eulermascheroni'
+    },
+    {
+        name: 'apery',
+        type: 'control',
+        content: 'Apery',
+        value: 'apery'
+    },
+    {
         name: 'sin',
         type: 'function',
         content: 'sin(θ)',
@@ -878,22 +896,76 @@ const calculatorKeys = [
         value: 'tan('
     },
     {
+        name: 'sinh',
+        type: 'function',
+        content: 'sinh(θ)',
+        value: 'sinh('
+    },
+    {
+        name: 'cosh',
+        type: 'function',
+        content: 'cosh(θ)',
+        value: 'cosh('
+    },
+    {
+        name: 'tanh',
+        type: 'function',
+        content: 'tanh(θ)',
+        value: 'tanh('
+    },
+    {
         name: 'arcsin',
         type: 'function',
-        content: 'arcsin(θ)',
+        content: 'arcsin(x)',
         value: 'asin('
     },
     {
         name: 'arccos',
         type: 'function',
-        content: 'arccos(θ)',
+        content: 'arccos(x)',
         value: 'acos('
     },
     {
         name: 'arctan',
         type: 'function',
-        content: 'arctan(θ)',
+        content: 'arctan(x)',
         value: 'atan('
+    },
+    {
+        name: 'arsinh',
+        type: 'function',
+        content: 'arsinh(x)',
+        value: 'arsinh('
+    },
+    {
+        name: 'arcosh',
+        type: 'function',
+        content: 'arcosh(x)',
+        value: 'arcosh('
+    },
+    {
+        name: 'artanh',
+        type: 'function',
+        content: 'artanh(x)',
+        value: 'artanh('
+    },
+    {
+        name: 'avg',
+        type: 'function',
+        content: 'avg(...x)',
+        value: 'avg('
+    },
+    {
+        name: 'avgAD',
+        type: 'function',
+        content: 'avgAD(m, ...x)',
+        value: 'avgAD('
+    },
+    {
+        name: 'median',
+        type: 'function',
+        content: 'median(...x)',
+        value: 'median('
     },
     {
         name: 'ln',
@@ -902,34 +974,34 @@ const calculatorKeys = [
         value: 'ln('
     },
     {
+        name: 'log',
+        type: 'function',
+        content: 'logₐ(x)',
+        value: 'log('
+    },
+    {
         name: 'modulo',
         type: 'function',
         content: 'a mod b',
         value: '%'
     },
     {
-        name: 'deg',
-        type: 'function',
-        content: '°',
-        value: '°'
-    },
-    {
-        name: 'log',
-        type: 'function',
-        content: 'log(n, x)',
-        value: 'log('
-    },
-    {
         name: 'root',
         type: 'function',
-        content: 'root(n, x)',
+        content: 'ⁿ√x',
         value: 'root('
     },
     {
         name: 'square',
         type: 'function',
-        content: 'square(x)',
+        content: 'x²',
         value: 'square('
+    },
+    {
+        name: 'midway',
+        type: 'function',
+        content: 'midway(...x)',
+        value: 'midway('
     },
     {
         name: 'exp',
@@ -940,14 +1012,92 @@ const calculatorKeys = [
     {
         name: 'pow',
         type: 'function',
-        content: 'pow(x, n)',
+        content: 'xⁿ',
         value: 'pow('
     },
     {
         name: 'sqrt',
         type: 'function',
-        content: 'sqrt(x)',
+        content: '√x',
         value: 'sqrt('
+    },
+    {
+        name: 'lambertW',
+        type: 'function',
+        content: 'W(x)',
+        value: 'lambertW('
+    },
+    {
+        name: 'ilog',
+        type: 'function',
+        content: 'ilog(x, b)',
+        value: 'ilog('
+    },
+    {
+        name: 'gamma',
+        type: 'function',
+        content: 'Γ(x)',
+        value: 'gamma('
+    },
+    {
+        name: 'abs',
+        type: 'function',
+        content: '|x|',
+        value: 'abs('
+    },
+    {
+        name: 'factorial',
+        type: 'function',
+        content: 'x!',
+        value: 'factorial('
+    },
+    {
+        name: 'random',
+        type: 'function',
+        content: 'random(min, max)',
+        value: 'random('
+    },
+    {
+        name: 'floor',
+        type: 'function',
+        content: '⎿x⏌',
+        value: 'floor('
+    },
+    {
+        name: 'ceil',
+        type: 'function',
+        content: '⎾x⏋',
+        value: 'ceil('
+    },
+    {
+        name: 'round',
+        type: 'function',
+        content: '⎾x⏌',
+        value: 'round('
+    },
+    {
+        name: 'deg',
+        type: 'digit',
+        content: '°',
+        value: '°'
+    },
+    {
+        name: 'rad',
+        type: 'digit',
+        content: 'rad',
+        value: 'rad'
+    },
+    {
+        name: 'factorial',
+        type: 'digit',
+        content: '!',
+        value: '!'
+    },
+    {
+        name: 'coma',
+        type: 'digit',
+        content: ',',
+        value: ','
     },
     {
         name: 'nine',
@@ -1030,7 +1180,7 @@ const calculatorKeys = [
     {
         name: 'dot',
         type: 'digit',
-        content: ',',
+        content: '.',
         value: '.'
     },
     {
