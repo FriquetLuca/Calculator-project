@@ -1161,16 +1161,24 @@ function pushNewKeys(e)
 }
 
 let computeBtn = document.getElementById('equal');
+let userInput = document.querySelector('.calculator_displayResult_write');
 computeBtn.addEventListener('click', () => {
     computeInput();
 });
+userInput.addEventListener('keydown', function(e){
+    // Enter was pressed without shift key
+    if (e.keyCode == 13 && !e.shiftKey)
+    {
+        e.preventDefault();
+        computeInput();
+    }
+    });
 
 function computeInput()
 {
-    let userInput = document.querySelector('.calculator_displayResult_write').value;
     let output = document.querySelector('.calculator_displayResult_result');
     let r = null;
-    let computingResult = computeResult(remakeNodes(LookForPattern(userInput, AllBasicPatterns).result));
+    let computingResult = computeResult(remakeNodes(LookForPattern(userInput.value, AllBasicPatterns).result));
     if(computingResult.length > 0)
     {
         r = computingResult[0].content;
