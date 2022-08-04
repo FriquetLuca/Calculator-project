@@ -1,5 +1,5 @@
 const controls = [ '\n', '\t' ];
-const whitespaces = [' ', '\t' ];
+const whitespaces = [' ' ];
 const symbols = [ '§', '!', '@', '¥', '€', '¬', '&', '|', '#', '^', '*', '$', '%', '±', '=', '+', '-', '*', '/', '\\', '<', '>', '~', '°', '_', '`', '´', '¨', '(', ')', '[', ']', '{', '}' ];
 const punctuations = [ '.', ',', ';', ':', '?', '"', '\'', '«', '»' ];
 const letters = [   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
@@ -731,98 +731,107 @@ const keySections = {};
      }
      return result;
  };
- const computeResult = (nodes, priority = 0) => {
-     if(priority > 3)
-     {
-         return nodes;
-     }
-     for(let i = 0; i < nodes.length; i++)
-     {
-         if(i < 0)
-         {
-             i = 0;
-         }
-         let node = nodes[i];
-         let result;
-         switch(node.name)
-         {
-             case 'Function':
-                 let f = preFunc[node.funcName];
-                 result = computeResult(node.content);
-                 let prepareArgs = [];
-                 // If either the limit's unlock and the length of result is greater or equal to the number of arguments
-                 // or the result is at a correct length for the number of arguments
-                 if((f.unlockLimit && (result.length >= 2 * f.nbrArg - 1)) || result.length == 2 * f.nbrArg - 1)
-                 {
-                     for(let node of result)
-                     {
-                         if(node.name === 'Punctuation')
-                         {
-                             continue;
-                         }
-                         prepareArgs.push(node.content);
-                     }
-                     nodes[i].name = 'Number';
-                     nodes[i].content = f.exec(...prepareArgs);
-                     i -= 2;
-                 }
-                 break;
-             case 'Brackets':
-                 result = computeResult(node.content);
-                 nodes[i] = result[0];
-                 i -= 2;
-                 break;
-         }
-         if(i - 1 >= 0) // Previous exist
-         {
-             let prevNode = nodes[i - 1];
-             if(node.name === 'Symbol' && operators[node.content] && operators[node.content].isRightApplied)
-             {
-                 // If it's the same priority as the current one AND if left operands is numbers
-                 if(prevNode.name === 'Number' && operators[node.content].priority == priority)
-                 {
-                     nodes[i - 1].content = operators[node.content].exec(prevNode.content);
-                     nodes.splice(i, 1);
-                     i--;
-                 }
-             }
-             if(i + 1 < nodes.length) // Element between 2 other
-             {
-                 let nextNode = nodes[i + 1];
-                 if(node.name === 'Symbol' && operators[node.content]) // If it's an existing operator
-                 {
-                     // If it's the same priority as the current one AND if both operands are numbers
-                     if(operators[node.content].priority == priority && (prevNode.name === 'Number' && nextNode.name === 'Number'))
-                     {
-                         nodes[i - 1].content = operators[node.content].exec(prevNode.content, nextNode.content);
-                         nodes.splice(i, 2);
-                         i--;
-                     }
-                 }
-             }
-         }
-         else if(i == 0 && i + 1 < nodes.length) // First element
-         {
-             let nextNode = nodes[i + 1];
-             if(node.name === 'Symbol')
-             {
-                 switch(node.content)
-                 {
-                     case '-':
-                         if(nextNode.name === 'Number')
-                         {
-                             nodes[i + 1].content = -nodes[i + 1].content;
-                         }
-                     case '+':
-                         nodes.splice(0, 1);
-                         i--;
-                         break;
-                 }
-             }
-         }
-     }
-     return computeResult(nodes, priority + 1);
- }
+const computeResult = (nodes, priority = 0) => {
+    if(priority > 3)
+    {
+        return nodes;
+    }
+    for(let i = 0; i < nodes.length; i++)
+    {
+        if(i < 0)
+        {
+            i = 0;
+        }
+        let node = nodes[i];
+        let result;
+        switch(node.name)
+        {
+            case 'Function':
+                let f = preFunc[node.funcName];
+                result = computeResult(node.content);
+                let prepareArgs = [];
+                // If either the limit's unlock and the length of result is greater or equal to the number of arguments
+                // or the result is at a correct length for the number of arguments
+                if((f.unlockLimit && (result.length >= 2 * f.nbrArg - 1)) || result.length == 2 * f.nbrArg - 1)
+                {
+                    for(let node of result)
+                    {
+                        if(node.name === 'Punctuation')
+                        {
+                            continue;
+                        }
+                        prepareArgs.push(node.content);
+                    }
+                    nodes[i].name = 'Number';
+                    nodes[i].content = f.exec(...prepareArgs);
+                    i -= 2;
+                }
+                continue;
+            case 'Brackets':
+                result = computeResult(node.content);
+                nodes[i] = result[0];
+                i -= 2;
+                continue;
+            case 'Number':
+                if(operators['*'].priority == priority && i + 1 < nodes.length && nodes[i + 1].name === 'Number')
+                {
+                    nodes[i].content = operators['*'].exec(nodes[i].content, nodes[i + 1].content);
+                    nodes.splice(i + 1, 1);
+                    i--;
+                    continue;
+                }
+                break;
+        }
+        if(i - 1 >= 0) // Previous exist
+        {
+            let prevNode = nodes[i - 1];
+            if(node.name === 'Symbol' && operators[node.content] && operators[node.content].isRightApplied)
+            {
+                // If it's the same priority as the current one AND if left operands is numbers
+                if(prevNode.name === 'Number' && operators[node.content].priority == priority)
+                {
+                    nodes[i - 1].content = operators[node.content].exec(prevNode.content);
+                    nodes.splice(i, 1);
+                    i--;
+                }
+            }
+            if(i + 1 < nodes.length) // Element between 2 other
+            {
+                let nextNode = nodes[i + 1];
+                if(node.name === 'Symbol' && operators[node.content]) // If it's an existing operator
+                {
+                    // If it's the same priority as the current one AND if both operands are numbers
+                    if(operators[node.content].priority == priority && (prevNode.name === 'Number' && nextNode.name === 'Number'))
+                    {
+                        nodes[i - 1].content = operators[node.content].exec(prevNode.content, nextNode.content);
+                        nodes.splice(i, 2);
+                        i--;
+                    }
+                }
+            }
+        }
+        else if(i == 0 && i + 1 < nodes.length) // First element
+        {
+            let nextNode = nodes[i + 1];
+            if(node.name === 'Symbol')
+            {
+                switch(node.content)
+                {
+                    case '-':
+                        if(nextNode.name === 'Number')
+                        {
+                            nodes[i + 1].content = -nodes[i + 1].content;
+                        }
+                    case '+':
+                        nodes.splice(0, 1);
+                        i--;
+                        break;
+                }
+            }
+        }
+    }
+    return computeResult(nodes, priority + 1);
+}
 
 const calculatorKeys = [
     {

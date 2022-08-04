@@ -27,8 +27,8 @@ You can test it [here](https://friquetluca.github.io/Calculator-project/).
     > Sum of a and b.
 - a - b
     > Difference of a by b.
-- a * b
-    > Product of a and b.
+- a * b, a b
+    > Product of a and b. (can be on function and number, but for number it can be omitted as long as there space between both numbers)
 - a / b
     > Divide a by b.
 - a % b
