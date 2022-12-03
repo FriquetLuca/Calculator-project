@@ -868,7 +868,7 @@ const calculatorKeys = [
         name: 'pi',
         type: 'control',
         content: 'π',
-        value: 'π'
+        value: 'pi'
     },
     {
         name: 'e',
@@ -880,7 +880,7 @@ const calculatorKeys = [
         name: 'golden',
         type: 'control',
         content: 'φ',
-        value: 'φ'
+        value: 'golden'
     },
     {
         name: 'eulermascheroni',
